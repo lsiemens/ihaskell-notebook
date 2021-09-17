@@ -2,7 +2,9 @@ ARG BASE_CONTAINER=jupyter/base-notebook:lab-3.0.16@sha256:21cd28169e3aee6fcc561
 FROM $BASE_CONTAINER
 # https://hub.docker.com/r/jupyter/base-notebook/tags
 
-LABEL maintainer="James Brock <jamesbrock@gmail.com>"
+
+LABEL description="JupyterLab Python/Haskell dev server for lsiemens.com"
+LABEL maintainer="Luke Siemens <luke@lsiemens.com>"
 
 # Extra arguments to `stack build`. Used to build --fast, see Makefile.
 ARG STACK_ARGS=
