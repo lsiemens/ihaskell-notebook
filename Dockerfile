@@ -244,3 +244,9 @@ RUN    mkdir -p $EXAMPLES_PATH \
     && cp /opt/hvega/notebooks/*.tsv ihaskell-hvega/ \
     && fix-permissions $EXAMPLES_PATH
 
+# mount point for lsiemens.github.io repository
+ARG LSIEMENS_MOUNT_POINT_PATH=/home/$NB_USER/lsiemens.github.io
+
+# Create mount point for persistent notebooks
+RUN    mkdir -p $LSIEMENS_MOUNT_POINT_PATH \
+    && fix-permissions $LSIEMENS_MOUNT_POINT_PATH

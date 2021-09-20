@@ -1,5 +1,9 @@
 .PHONY: help build dev test test-env
 
+# Path to lsiemens.github.io repository
+MOUNT_PATH:=$(HOME)/Repositories/lsiemens.github.io
+# Mount point in docker image
+TARGET_PATH:=/home/jovyan/lsiemens.github.io
 # Docker image name and tag
 IMAGE:=lsiemens/ihaskell-notebook
 TAG?=latest
@@ -30,7 +34,7 @@ test-env: ## Make a test environment by installing test dependencies with pip
 
 .PHONY: up
 up: ## Launch JupyterLab with token=x
-	$(DOCKER) run --rm -p 8888:8888 --name ihaskell_notebook $(IMAGE):$(TAG) jupyter lab --LabApp.token=''
+	$(DOCKER) run --rm -p 8888:8888 -v $(MOUNT_PATH):$(TARGET_PATH) --name ihaskell_notebook $(IMAGE):$(TAG) jupyter lab --ServerApp.token=''
 
 .PHONY: build-fast
 build-fast: DARGS?=
