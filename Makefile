@@ -1,9 +1,9 @@
 .PHONY: help build dev test test-env
 
 # Path to lsiemens.github.io repository
-MOUNT_PATH:=$(HOME)/Repositories/lsiemens.github.io
+MOUNT_PATH:=$(HOME)/Repositories/iprocess-projects/iprocess-notebooks
 # Mount point in docker image
-TARGET_PATH:=/home/jovyan/lsiemens.github.io
+TARGET_PATH:=/home/jovyan/iprocess-notebooks
 # Docker image name and tag
 IMAGE:=lsiemens/ihaskell-notebook
 TAG?=latest
